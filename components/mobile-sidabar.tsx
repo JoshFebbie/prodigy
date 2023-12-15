@@ -1,13 +1,26 @@
 "use client";
 
 import Sidebar from "@/components/sidebar";
+import { useState, useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import { Menu } from 'lucide-react'
 
-const MobileSidabar = () => {
+
+//Hydradtion issue can be resolved by using the useEffect hook, which will only run after the component is mounted.
+const MobileSidebar = () => {
+    const [isMounted, setIsMounted] = useState(false)
+
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
+
+    if (!isMounted) {
+        return null
+    }
+//-----------------------------------------------------------------------------//
   return (
    <Sheet>
     <SheetTrigger>
@@ -22,4 +35,4 @@ const MobileSidabar = () => {
   )
 }
 
-export default MobileSidabar;
+export default MobileSidebar;
