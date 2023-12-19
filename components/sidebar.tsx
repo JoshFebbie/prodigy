@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-// import { Montserrat } from "next/font/google";
+import { Orbitron } from "next/font/google";
 import { Poppins } from "next/font/google";
 
 import { cn } from "@/lib/utils";
@@ -18,7 +18,12 @@ import {
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-const poppins = Poppins({
+// const poppins = Poppins({
+//   subsets: ["latin"],
+//   weight: ["400", "500", "600", "700", "800", "900"],
+// });
+
+const orbitron = Orbitron({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
 });
@@ -85,7 +90,7 @@ const Sidebar = () => {
           <h1
             className={cn(
               "text-2xl font-bold text-[#3de934]",
-              poppins.className
+              orbitron.className
             )}
           >
             Prodigy.Ai
@@ -97,7 +102,7 @@ const Sidebar = () => {
               href={route.href}
               key={route.href}
               className={cn(
-                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition", orbitron.className,
                 pathname === route.href
                   ? "text-white bg-white/10"
                   : "text-zinc-400"
